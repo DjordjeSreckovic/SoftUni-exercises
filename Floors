@@ -1,0 +1,27 @@
+function solve(floors,rooms){
+    let i = floors
+    while (i > 0){
+        let print = ""
+        let j = 0
+        while (j < rooms){
+            if (i == floors){
+                print += "L"+i+""+j+" "
+                if (j == rooms -1){
+                    break
+                }
+            }
+            if (i !== floors){
+                if (i%2 == 0){
+                    print += "O"+i+""+j+" "
+                } else {
+                    print += "A"+i+""+j+" "
+                }
+            }
+            j++
+        }
+        i--
+        console.log(print)
+    }
+}
+
+solve(5,6)
