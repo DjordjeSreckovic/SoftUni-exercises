@@ -1,0 +1,53 @@
+function solve(niz){
+    let sumP = 0
+    let sumN = 0
+    let i = 0
+    while(String(niz[i]) !== "stop"){
+        let isPrime = function(number){
+            if (number < 2) {
+                return false;
+            }
+            for (let i = 2; i <= Math.sqrt(number); i++) {
+                if (number % i === 0) {
+                    return false;
+                }
+            }
+            return true;
+        };
+        let index = Number(niz[i])
+        if (index < 0){
+            console.log("Number is negative.")
+        } else {
+            if (isPrime(index)){
+                sumP += index
+            } else {
+                sumN += index
+            }
+        }
+        i++
+    }
+    console.log("Sum of all prime numbers is: "+sumP)
+    console.log("Sum of all non prime numbers is: "+sumN)
+}
+
+solve([3,
+    9,
+    0,
+    7,
+    19,
+    4,
+    "stop"])
+
+    solve([30,
+        83,
+        33,
+        -1,
+        20,
+        "stop"])
+
+        solve([0,
+            -9,
+            0,
+            "stop"])
+            
+    
