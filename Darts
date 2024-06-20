@@ -1,0 +1,53 @@
+function solve(niz){
+    let points = 301
+    let name = niz[0]
+    let SuccThrows = 0
+    let unSuccThrows = 0
+    let i = 1
+    let j = 2
+    while (String(niz[i]) !== "Retire"){
+        let index = String(niz[i])
+        let jndex = Number(niz[j])
+        if (index == "Triple"){
+            jndex = jndex * 3
+        } else if (index == "Double"){
+            jndex = jndex * 2
+        }
+        if (points > jndex){
+            points -= jndex
+            SuccThrows++
+        } else if (points == jndex){
+            SuccThrows++
+            console.log(name+" won the leg with "+SuccThrows+" shots.")
+            return
+        } else if (jndex > points) {
+            unSuccThrows++
+        }
+        i += 2
+        j += 2
+    }
+        console.log(name+" retired after "+unSuccThrows+" unsuccessful shots.")
+}
+
+solve(["Stephen Bunting",
+    "Triple",
+    20,
+    "Triple",
+    20,
+    "Triple",
+    20,
+    "Triple",
+    20,
+    "Triple",
+    20,
+    "Triple",
+    20,
+    "Double",
+    7,
+    "Single",
+    12,
+    "Double",
+    1,
+    "Single",
+    1])
+    
