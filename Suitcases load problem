@@ -1,0 +1,39 @@
+function solve(niz){
+    let capacity = niz[0]
+    let suitcases = 0
+    let suitcase = 0
+    let i = 1
+    while (String(niz[i]) !== "End"){
+        let index = Number(niz[i])
+        suitcases++
+        if (suitcases < 3){
+            capacity -= index
+        } else {
+            capacity -= (((index * 10)/100) + index)
+            suitcases = 0
+        }
+        if (capacity < 0){
+            console.log("No more space!")
+            console.log("Statistic: "+suitcase+" suitcases loaded.")
+            return
+        }
+        suitcase++
+        i++
+    }
+    console.log("Congratulations! All suitcases are loaded!")
+    console.log("Statistic: "+suitcase+" suitcases loaded.")
+}
+
+solve([550,
+    100,
+    252,
+    72,
+    "End"])    
+
+solve([1200.2,
+    260,
+    380.5,
+    125.6,
+    305,
+    "End"])
+        
