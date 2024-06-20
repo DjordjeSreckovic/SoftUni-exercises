@@ -1,0 +1,55 @@
+function solve(niz){
+    let budget = niz[0]
+    let numbF = niz[1]
+    let totalP = 0
+    let i = 2
+    while (i <= niz.length -1){
+     let title = niz[i]
+     i++
+     let price = niz[i]
+     if (title == "Thrones"){
+        price -= (price*50)/100
+     } else if (title == "Lucifer"){
+        price -= (price*40)/100
+     } else if (title == "Protector"){
+        price -= (price*30)/100
+     } else if (title == "TotalDrama"){
+        price -= (price*20)/100
+     } else if (title == "Area"){
+        price -= (price*10)/100
+     }
+    totalP += price
+    i++
+     }
+    if (budget >= totalP){
+        console.log("You bought all the series and left with "+(budget - totalP).toFixed(2)+" USD.")
+    } else {
+        console.log("You need "+(totalP - budget).toFixed(2)+" USD. more to buy the series!")
+    }
+}
+
+solve([10,
+    3,
+    "Thrones",
+    5,
+    "Riverdale",
+    5,
+    "Gotham",
+    2])
+
+solve([25,
+    6,
+    "Teen Wolf",
+    8,
+    "Protector",
+    5,
+    "TotalDrama",
+    5,
+    "Area",
+    4,
+    "Thrones",
+    5,
+    "Lucifer",
+    9])
+
+        
